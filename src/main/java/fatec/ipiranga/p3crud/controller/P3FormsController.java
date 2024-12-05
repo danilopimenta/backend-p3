@@ -21,7 +21,7 @@ public class P3FormsController {
     }
 
     @PutMapping
-    public ResponseEntity<Boolean> updateEnrollment(@RequestParam Long id, @RequestBody CreateEnrollmentDTO createEnrollmentDto) {
+    public ResponseEntity<Enrollment> updateEnrollment(@RequestParam Long id, @RequestBody CreateEnrollmentDTO createEnrollmentDto) {
         return ResponseEntity.ok(enrollmentService.updateEnrollment(id, createEnrollmentDto));
     }
 

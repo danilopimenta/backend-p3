@@ -33,7 +33,7 @@ public class EnrollmentService {
         return newEnrollment;
     }
 
-    public boolean updateEnrollment(Long id, CreateEnrollmentDTO enrollmentDTO) {
+    public Enrollment updateEnrollment(Long id, CreateEnrollmentDTO enrollmentDTO) {
         Enrollment enrollment = enrollmentRepository.findById(id).orElseThrow(
                         () -> new RuntimeException("Enrollment not found"));
 
@@ -44,8 +44,7 @@ public class EnrollmentService {
         enrollment.setDocument(enrollmentDTO.document());
         enrollment.setEnrollmentGroup(enrollmentDTO.enrollmentGroup());
         enrollment.setObservation(enrollmentDTO.observation());
-        enrollmentRepository.save(enrollment);
-        return true;
+        return enrollmentRepository.save(enrollment);
     }
 
     public boolean deleteEnrollment(Long id) {
